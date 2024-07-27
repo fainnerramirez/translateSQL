@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: "YOUR_API_KEY", // This is the default and can be omitted
+  apiKey: process.env.REACT_APP_OPEN_AI_KEY, // This is the default and can be omitted
   dangerouslyAllowBrowser: true,
 });
 
@@ -14,10 +14,10 @@ export const getTranslateLanguageToSQL = async (query) => {
         content: `Eres un experto en consultas SQL, 
           realizas consultas muy avanzadas,
            buenas y optimizadas. el usuario te va a preguntar o decir la consulta 
-           pero con lenguaje natural y tu le devuelves la co sulta SQL 
+           pero con lenguaje natural (palabras humanas)) y tu le devuelves la consulta SQL 
            según la consulta del lenguaje natural de usuario. 
            Devuelves estrictamente la consulta sql en Mayúsculas las palabras claves de SQL; 
-           por ejemplo: SELECT, WHERE, GROUPBY, etc. solo retornas la conulta SQL sin texto adicional`,
+           por ejemplo: SELECT, WHERE, GROUPBY, etc. solo retornas la consulta SQL sin texto adicional`,
       },
       { role: "user", content: `${query}` },
     ],
