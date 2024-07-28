@@ -41,18 +41,16 @@ export const TranslateSQL = () => {
   };
 
   return (
-    <VStack>
-      <Box>
+    <VStack width={"100%"} height={"100%"} justifyContent={'center'} alignItems={'center'}>
+      <VStack spacing={5} mt={100} width={"100%"} bg={"red"}>
         <Box>
-          <Heading>Traductor de Lenguaje natural a SQL</Heading>
+          <Heading textAlign={'center'}>Traductor de Lenguaje natural a SQL</Heading>
         </Box>
-      </Box>
-      <VStack spacing={5}>
         <Text>Ingresa tu consulta en lenguaje natural</Text>
         <Textarea
           id="editor"
           placeholder="Ejemplo: Muestrame todos los usuario con el nombre Fainner"
-          cols={90}
+          cols={{base: "100%", md: 60}}
           rows={7}
           onChange={(e) => setQuery(e.target.value)}
         ></Textarea>
@@ -65,9 +63,9 @@ export const TranslateSQL = () => {
           Generar Consulta SQL
         </Button>
       </VStack>
-      <VStack spacing={5}>
+      <VStack spacing={5} padding={20}>
         <Text>Consulta SQL generada</Text>
-        <Box ref={editorRef} width={700} height={400}></Box>
+        <Box ref={editorRef} width={{base: "100%", md: 700}} height={{ base: "100%", md: 400}}></Box>
       </VStack>
     </VStack>
   );
